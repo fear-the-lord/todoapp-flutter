@@ -58,7 +58,15 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(),
+              child: Provider.of<TaskData>(context).taskCount == 0
+                  ? FittedBox(
+                      child: Text(
+                        'No tasks pending',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 18.0),
+                      ),
+                    )
+                  : TasksList(),
             ),
           ),
         ],
